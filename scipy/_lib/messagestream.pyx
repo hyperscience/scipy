@@ -42,7 +42,7 @@ cdef class MessageStream:
                 os.remove(self._filename)
             raise OSError(f"Failed to open file {self._filename}")
 
-    def __dealloc__(self):
+    def __del__(self):
         self.close()
 
     def get(self):
@@ -78,7 +78,7 @@ cdef class MessageStream:
     def clear(self):
         stdio.rewind(self.handle)
 
-    cpdef close(self):
+    def close(self):
         if self.handle != NULL:
             stdio.fclose(self.handle)
             self.handle = NULL
