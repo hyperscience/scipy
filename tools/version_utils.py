@@ -8,7 +8,7 @@ MINOR = 10
 MICRO = 0
 ISRELEASED = True
 IS_RELEASE_BRANCH = True
-VERSION = '%d.%d.%d' % (MAJOR, MINOR, MICRO)
+VERSION = '%d.%d.%d+hs0' % (MAJOR, MINOR, MICRO)
 
 
 def get_version_info(source_root):

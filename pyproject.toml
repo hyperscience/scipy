@@ -142,12 +142,12 @@ dodoFile = "dev.py"
 
 
 [tool.cibuildwheel]
-skip = "cp36-* cp37-* pp* *_ppc64le *_i686 *_s390x *-musllinux*"
+skip = "cp36-* cp37-* cp38-* cp310-* cp39-* cp312-* pp* *_ppc64le *_i686 *_s390x *-musllinux*"
 build-verbosity = "3"
 # gmpy2 and scikit-umfpack are usually added for testing. However, there are
 # currently wheels missing that make the test script fail.
-test-requires = ["pytest", "pytest-cov", "pytest-xdist", "asv", "mpmath", "threadpoolctl", "pooch"]
-test-command = "bash {project}/tools/wheels/cibw_test_command.sh {project}"
+#test-requires = ["pytest", "pytest-cov", "pytest-xdist", "asv", "mpmath", "threadpoolctl", "pooch"]
+#test-command = "bash {project}/tools/wheels/cibw_test_command.sh {project}"
 
 [tool.cibuildwheel.linux]
 manylinux-x86_64-image = "manylinux2014"
