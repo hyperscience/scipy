@@ -41,7 +41,7 @@ requires = [
 
 [project]
 name = "scipy"
-version = "1.14.1"
+version = "1.14.1+hs0"
 # TODO: add `license-files` once PEP 639 is accepted (see meson-python#88)
 #       at that point, no longer include them in `py3.install_sources()`
 license = { file = "LICENSE.txt" }
@@ -129,7 +129,9 @@ dodoFile = "dev.py"
 
 
 [tool.cibuildwheel]
-skip = "cp36-* cp37-* cp38-* pp* *_ppc64le *_i686 *_s390x"
+# skip = "cp36-* cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp314-* cp314-*-*t* pp* *_ppc64le *_i686 *_s390x *-musllinux*"
+build = "cp313-*"
+skip = "*-musllinux*"
 # gmpy2 and scikit-umfpack are usually added for testing. However, there are
 # currently wheels missing that make the test script fail.
 test-requires = [
