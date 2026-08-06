@@ -43,7 +43,7 @@ requires = [
 
 [project]
 name = "scipy"
-version = "1.16.1"
+version = "1.16.1+hs0"
 # TODO: add `license-files` once PEP 639 is accepted (see meson-python#88)
 #       at that point, no longer include them in `py3.install_sources()`
 license = { file = "LICENSE.txt" }
@@ -144,7 +144,9 @@ package = 'scipy'
 install = ['--skip-subprojects']
 
 [tool.cibuildwheel]
-skip = "cp36-* cp37-* cp38-* pp* *_ppc64le *_i686 *_s390x"
+# hyperscience (+hs0): build only the CPython 3.14 wheels we need; skip musllinux.
+build = "cp314-*"
+skip = "*-musllinux*"
 # We're only testing with essential test dependencies, not optional ones.
 # Some of those require binary wheels (often missing for some platforms),
 # or they slow down the test suite runs too much or simply aren't necessary.
