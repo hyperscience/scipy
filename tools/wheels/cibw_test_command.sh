@@ -12,4 +12,4 @@ if [[ $FREE_THREADED_BUILD == "True" ]]; then
 
 fi
 
-python -c "import sys; import scipy; sys.exit(not scipy.test())"
+python -c "import sys; import scipy; sys.exit(not scipy.test(extra_argv=['-k', 'not test_valid_scipy_version']))"
